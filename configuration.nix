@@ -68,26 +68,16 @@
     autoRepeatDelay = 200;
     autoRepeatInterval = 35;
   };
-  services.displayManager.ly.enable = true;
-  environment.etc."ly/set-colors.sh" = {
-    mode = "0755";
-    text = ''
-      #!${pkgs.bash}/bin/bash
-
-      ${pkgs.ncurses}/bin/tput reset
-
-      # Set terminal background to #1a1b26
-      printf '\033]11;rgb:1a1b/1a1b/1a1b\033\\'
-
-      # Set terminal foreground to #c0caf5
-      printf '\033]10;rgb:c0ca/f5f5\033\\'
-    '';
+  services.displayManager.ly = {
+    enable = true;
+    settings = {
+      bg = "0xFF1A1B26";
+      fg = "0xFFA9B1D6";
+      border_fg = "0xFFA9B1D6";
+      error_fg = "0xFFF7768E";
+    };
   };
-
-  services.displayManager.ly.settings = {
-    term_reset_cmd = "/etc/ly/set-colors.sh";
-  };
-
+  
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
