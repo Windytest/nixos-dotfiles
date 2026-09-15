@@ -70,11 +70,17 @@
   };
   services.displayManager.ly = {
     enable = true;
+
     settings = {
-      bg = "0xFF1A1B26";
-      fg = "0xFFA9B1D6";
-      border_fg = "0xFFA9B1D6";
-      error_fg = "0xFFF7768E";
+      bg = 0;
+      fg = 7;
+      error_fg = 1;
+
+      # Reapply the palette whenever Ly resets the terminal
+      term_reset_cmd =
+        "/run/current-system/sw/bin/tput reset; "
+        + "/run/current-system/sw/bin/printf '%b' "
+        + "'\\e]P01A1B26\\e]P7A9B1D6\\e]P1F7768E\\ec'";
     };
   };
   
