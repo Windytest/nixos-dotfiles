@@ -88,7 +88,7 @@
     "7aa2f7" # BrightBlue
     "bb9af7" # BrightMagenta
     "7dcfff" # BrightCyan
-    "#c0caf5" # BrighWhite
+    "c0caf5" # BrighWhite
 
   ];
   programs.hyprland = {
