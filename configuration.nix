@@ -70,20 +70,27 @@
   };
   services.displayManager.ly = {
     enable = true;
-
-    settings = {
-      bg = 0;
-      fg = 7;
-      error_fg = 1;
-
-      # Reapply the palette whenever Ly resets the terminal
-      term_reset_cmd =
-        "/run/current-system/sw/bin/tput reset; "
-        + "/run/current-system/sw/bin/printf '%b' "
-        + "'\\e]P01A1B26\\e]P7A9B1D6\\e]P1F7768E\\ec'";
-    };
   };
-  
+
+  console.colors = [
+    "1a1b26" # Black
+    "f7768e" # Red
+    "9ece6a" # Green
+    "ff9e64" # Yellow
+    "7aa2f7" # Blue
+    "bb9af7" # Magenta
+    "7dcfff" # Cyan
+    "a9b1d6" # White
+    "414868" # BrightBlack
+    "f7768e" # BrightRed
+    "9ece6a" # BrightGreen
+    "e0af68" # BrightYellow
+    "aa2f7" # BrightBlue
+    "bb9af7" # BrightMagenta
+    "7dcfff" # BrightCyan
+    "#c0caf5" # BrighWhite
+
+  ]
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
