@@ -85,7 +85,7 @@
     "f7768e" # BrightRed
     "9ece6a" # BrightGreen
     "e0af68" # BrightYellow
-    "aa2f7" # BrightBlue
+    "7aa2f7" # BrightBlue
     "bb9af7" # BrightMagenta
     "7dcfff" # BrightCyan
     "#c0caf5" # BrighWhite
