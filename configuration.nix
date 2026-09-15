@@ -90,7 +90,7 @@
     "7dcfff" # BrightCyan
     "#c0caf5" # BrighWhite
 
-  ]
+  ];
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
