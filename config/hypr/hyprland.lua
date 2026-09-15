@@ -17,12 +17,16 @@
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
 hl.monitor({
     output   = "",
-    mode     = "preferred",
+    mode     = "highres",
     position = "auto",
     scale    = "1.5",
 })
 
-
+hl.config({
+  xwayland = {
+    force_zero_scaling = true
+  }
+})
 ---------------------
 ---- MY PROGRAMS ----
 ---------------------

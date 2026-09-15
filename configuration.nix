@@ -11,7 +11,11 @@
     ];
 
   # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.limine.enable = true;
+  boot.loader.limine.secureBoot.enable = true;
+  boot.loader.limine.style.wallpapers = [];
+  boot.loader.limine.extraConfig =
+    builtins.readFile ./tokyonight-dark.conf;
   boot.loader.efi.canTouchEfiVariables = true;
 
   nixpkgs.config.allowUnfree = true;
@@ -65,7 +69,25 @@
     autoRepeatInterval = 35;
   };
   services.displayManager.ly.enable = true;
-  services.desktopManager.plasma6.enable = true;
+  environment.etc."ly/set-colors.sh" = {
+    mode = "0755";
+    text = ''
+      #!${pkgs.bash}/bin/bash
+
+      ${pkgs.ncurses}/bin/tput reset
+
+      # Set terminal background to #1a1b26
+      printf '\033]11;rgb:1a1b/1a1b/1a1b\033\\'
+
+      # Set terminal foreground to #c0caf5
+      printf '\033]10;rgb:c0ca/f5f5\033\\'
+    '';
+  };
+
+  services.displayManager.ly.settings = {
+    term_reset_cmd = "/etc/ly/set-colors.sh";
+  };
+
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
@@ -122,6 +144,7 @@
     prismlauncher
     hyprpolkitagent
     lazygit
+    sbctl
   ];
 
   fonts.packages = with pkgs; [
